@@ -1,0 +1,48 @@
+.swipe{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--black);
+    border-radius: calc(var(--index) * 1);
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.cardContainer{
+    width: calc(var(--index) * 28);
+    height: calc(var(--index) * 45);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swipe .image{
+    width: calc(var(--index) * 28);
+    height: calc(var(--index) * 28);
+    border-radius: calc(var(--index) * 1);
+}
+.swipe .image:hover{
+    cursor: pointer;
+}
+.swipe .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--index) * 1);
+}
+.swipe .text{
+    width: 100%;
+    height: calc(var(--index) * 17);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 0 0 calc(var(--index) * 1) calc(var(--index) * 1);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: calc(var(--index) * 1);
+    overflow: scroll;
+}

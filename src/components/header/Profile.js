@@ -1,9 +1,10 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 export const Profile = () => {
     return (
-        <div>
-            <h1>Profile</h1>
+        <div className={"Profile"}>
+            <NavLink to={"/profile"}>Profile</NavLink>
         </div>
     );
 }

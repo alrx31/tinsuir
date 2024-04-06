@@ -11,7 +11,8 @@
     transition: .3s ease;
     cursor: pointer;
     box-shadow: 5px 5px 5px rgba(0,0,0,.5);
-    overflow: hidden;
+    overflow-y: hidden;
+
 }
 .awarded{
     border:1px solid yellow;
@@ -21,16 +22,23 @@
 }
 .listCard img{
     margin-right: 16px;
-    width: 200px;
-    height: 200px;
+    width: calc(var(--index) * 13);
+    height: calc(var(--index) * 13);
     border-radius: calc(var(--index) * 3);
     transition: .3s;
 }
 .listCard .text{
     margin-left: 16px;
+    padding-top: calc(var(--index) * 1);
     margin-right:calc(var(--index) * 2);
     transition: .3s;
     max-width:35%;
+    height: 100%;
+    word-wrap: break-word;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
 }
 .listCard h2{
     font-size: calc(var(--index) * 1.5);
@@ -52,7 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow:row wrap;
+    flex-flow:column-reverse wrap;
     position: relative;
     z-index: 2;
 }
@@ -60,10 +68,10 @@
     width: 90%;
     height: calc(var(--index) * 15);
     border-radius: calc(var(--index) * 3);
-    position: absolute;
-    top: 0;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
+
     z-index: -1;
     transition: .3s ease;
 }
@@ -71,7 +79,6 @@
     background-color: var(--cardbg);
     position: relative;
     margin: 0 auto;
-    margin-top: calc(var(--index) * 5);
     padding-top: 16px;
     width: 100%;
     height: auto;
@@ -93,6 +100,7 @@
     transition: .3s ease;
 }
 .block p{
+    display: none;
     font-size: calc(var(--index) * 1);
     margin: 0;
     transition: .3s ease;
@@ -129,4 +137,62 @@
     flex-flow: row wrap;
     margin-top: 32px;
     width: 100%;
+    padding-bottom: calc(var(--index) * 20);
 }
+
+.open {
+    width: 90%;
+    max-width: 90%;
+    height: calc(var(--index) * 55);
+    max-height: calc(var(--index) * 55);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column-reverse;
+    position: fixed;
+
+    top: calc(var(--index) * 8);
+    z-index: 3;
+    margin: 0 auto;
+    transform: translateX(-50%);
+
+}
+
+
+.open img{
+    position: relative;
+    width: calc(var(--index) * 25);
+    height: calc(var(--index) * 25);
+    border-radius: calc(var(--index) * 3);
+    transition: .3s ease;
+
+}
+
+.open .text{
+
+    background-color: transparent;
+    min-width: calc(var(--index) * 25);
+    min-height: calc(var(--index) * 20);
+    padding-top: 16px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    transition: .3s ease;
+    overflow-y:scroll;
+}
+.open .text p{
+    display: block;
+}
+
+
+
+@media (min-width: 1000px){
+
+    .Button{
+        width: calc(var(--index) * 7);
+        height: calc(var(--index) * 3);
+    }
+}
+

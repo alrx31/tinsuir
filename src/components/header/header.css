@@ -111,3 +111,7 @@ header {
     z-index: 4;
 
 }
+.Profile a{
+    color: aliceblue;
+    text-decoration: none;
+}
