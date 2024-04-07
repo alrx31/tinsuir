@@ -7,45 +7,21 @@ export const Profile = (
     return (
         <div className={"profile"}>
             <div className="photo">
-                <img src={User.photo} alt={User.name}/>
+                <img src={User.profilePicture} alt={User.firstName}/>
             </div>
             <div className="text">
-                <h1>{User.name}</h1>
-                <h2>{User.email}</h2>
-                <h2>{User.phone}</h2>
-                <div className="events">
-                    {User.events.map((event) => {
-                        return (
-                            <div className="event">
-                                <h3>{event.name}</h3>
-                                <p>{event.description}</p>
-                                <p>{event.location}</p>
-                                <p>{event.date}</p>
-                                <p>{event.awards}</p>
-                                <p>{event.category}</p>
-                            </div>
-                        );
-                    })}
+                <h2>{User.firstName} {User.lastName} {User.surName}</h2>
+                {User.isAdmin ? <h3>Admin</h3> : null}
+                <h3>{User.events.length} events</h3>
+                <p>{User.username}</p>
+                <p>{User.email}</p>
+                <p>{User.faculty}</p>
+                <p>{User.course}</p>
+                <p>{User.groupNum}</p>
 
-                </div>
-            <div className="awards">
 
-                <h2>AWARDS</h2>
-                <div className="award">
-                    <h3>AWARD1</h3>
-                    <p>DESCRIPTION1</p>
-                </div>
-                <div className="award">
-                    <h3>AWARD2</h3>
-                    <p>DESCRIPTION2</p>
-                </div>
-                <div className="award">
-                    <h3>AWARD3</h3>
-                    <p>DESCRIPTION3</p>
-                </div>
 
             </div>
-        </div>
     </div>
     );
 }

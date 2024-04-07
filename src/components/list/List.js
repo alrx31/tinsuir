@@ -1,68 +1,61 @@
-import React, {useState} from "react";
-import {ListCard} from "./ListCard";
+import React, { useState } from "react";
+import { ListCard } from "./ListCard";
 import "./list.css";
-// event = {name,description,location,date,awards,category}
 
-export const List = (
-    {events,owner = null, isown = true}
-) => {
-
-    let eves = [...events];
-    let [isBlock, toggleBlock] = useState(false);
-
-    let filterEvents = (events, user) => {
-        let result = [];
-        for (let i = 0; i < user.events.length; i++) {
-            for (let j = 0; j < events.length; j++) {
-                if (user.events[i].name === events[j].name) {
-                    result.push(events[j]);
-                }
-            }
-        }
-        return result;
-    }
-    let toggle = () => {
-        toggleBlock(!isBlock);
-    }
-    if (!isown){
-        eves = filterEvents(events, owner);
+export const List = ({ events = [], our, owner, addEvent ,setEvents,token}) => {
+    let [key, setKey] = useState(0);
+    let eves = [];
+    if (our) {
+        eves = owner.events;
+    }else{
+        eves = [...events]
     }
 
-    let CheckAwards = (event) => {
-
-        if( owner == null )return false;
-        for (let i = 0; i < owner.events.length; i++) {
-            if (owner.events[i].name === event.name) {
+    let CheckAward = (event) => {
+        for(let i = 0 ; i < owner.events.length; i++){
+            if (owner.events[i].name === event.name){
                 return true;
             }
         }
         return false;
-    }
+    };
+
+    let [isBlock, toggleBlock] = useState(false);
+
+    let toggle = () => {
+        toggleBlock(!isBlock);
+    };
+
+    // Функция обратного вызова, которая будет вызываться при изменении isAwardeed
+    const handleAwardeedChange = () => {
+        // Вызываем функцию toggleBlock для перерисовки компонента List
+        setKey(key=>key+ 1)
+    };
+
+
 
     return (
         <div>
-
             <div className="Control">
-                <div className="Button" >
-                     Сортировать
-                </div>
+                <div className="Button">Сортировать</div>
                 <div className="Button" onClick={toggle}>
                     {isBlock ? "Block" : "List"}
                 </div>
             </div>
-            <div className="list">
-                {eves.map((event, key) => {
-
-                        return (
-                            <ListCard
-                                key={key}
-                                event={event}
-                                isBlock={isBlock}
-                                isAwardeed={CheckAwards(event)}
-                            />
-                        );
+            <div className="list" key={key}>
+                {eves?.map((event, key) => {
+                    return (
+                        <ListCard
+                            key={key}
+                            event={event}
+                            isBlock={isBlock}
+                            addEvent={addEvent}
+                            isAwardeed={CheckAward(event)}
+                            onAwardeedChange={handleAwardeedChange} // Передаем функцию обратного вызова
+                        />
+                    );
                 })}
             </div>
         </div>
     );
-}
+};

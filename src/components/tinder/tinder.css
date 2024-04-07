@@ -46,3 +46,21 @@
     padding: calc(var(--index) * 1);
     overflow: scroll;
 }
+.last {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.last h2{
+    font-size: calc(var(--index) * 1.25);
+    margin: calc(var(--index) *1) 0;
+    padding: 16px;
+    background-color: var(--gray2);
+    border-radius: calc(var(--index) * 2);
+}
+.lastimg {
+}

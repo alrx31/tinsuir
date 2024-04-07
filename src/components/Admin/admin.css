@@ -6,12 +6,13 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    position:fixed;
+    padding-bottom: calc(var(--index) * 5);
+    position:absolute;
     left: 0;
     top: 0;
+    z-index: 2;
     background-color: var(--black);
     overflow: scroll;
-    z-index: 9;
 }
 .Form {
     width: calc(var(--index) * 20);

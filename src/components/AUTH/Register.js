@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
 
 import './log.css';
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 export const Register = () => {
-
-    let [formData, setFormData] = useState({
-        "firstName": "any",
-        "lastName": "any",
-        "surName": "any",
-        "username": "any",
-        "email": "any",
-        "password": "any",
-        "profilePicture": "any",
-        "coverPicture": "any",
-        "events": "any",
-        "faculty": "any",
-        "course": "any",
-        "groupNum": "any"
+    let history = useNavigate();
+    const [formData, setFormData] = useState({
+        "firstName": "",
+        "lastName": "",
+        "surName": "",
+        "username": "",
+        "email": "",
+        "password": "",
+        "profilePicture": "",
+        "coverPicture": "",
+        "events": "",
+        "faculty": "",
+        "course": "",
+        "groupNum": ""
     })
 
     let handleChange = (event) => {
@@ -32,25 +32,21 @@ export const Register = () => {
         sentData(formData);
     }
     let sentData = async (data) => {
-        try {
-            const response = await fetch("https://9f53-151-115-79-196.ngrok-free.app/api/auth/register", {
+        await fetch("https://f6a3-2a03-6f01-1-2-00-6ade.ngrok-free.app/api/auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
 
+            })
+            .then(response => response.json())
+            .then(data => {
+                history("/login");
+            })
+            .catch((error) => {
+                console.error('Error:', error);
             });
-
-            if (response.ok) {
-                const responseData = await response.json();
-                console.log(responseData);
-            } else {
-                console.error("Ошибка при отправке данных на сервер");
-            }
-        } catch (error) {
-            console.error(error);
-        }
     }
 
     return (

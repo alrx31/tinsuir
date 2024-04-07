@@ -6,7 +6,7 @@ import TinderCard from "react-tinder-card";
 
 let TC = (
     {
-        data,addEvent
+        data,addEvent,key
     }
 ) => {
 

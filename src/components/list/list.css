@@ -62,7 +62,7 @@
     align-items: center;
     flex-flow:column-reverse wrap;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 .block img{
     width: 90%;
@@ -194,5 +194,21 @@
         width: calc(var(--index) * 7);
         height: calc(var(--index) * 3);
     }
+}
+
+.towrite {
+    padding: 5px;
+    background-color:var(--blue);
+    border-radius: calc(var(--index) * 3);
+    text-align: center;
+    margin: 0 auto;
+    color:white;
+    cursor: pointer;
+    transition: .3s ease;
+    border: none;
+}
+
+.towrite:hover{
+    background-color: var(--gray);
 }
 
