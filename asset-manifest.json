@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/tinsuir/static/css/main.60e090f9.css",
+    "main.css": "/tinsuir/static/css/main.d98c3083.css",
     "main.js": "/tinsuir/static/js/main.67db6bf0.js",
     "static/media/FCADHACK.svg": "/tinsuir/static/media/FCADHACK.ab4ceb097157a7abe8d1ce56c8812cd2.svg",
     "index.html": "/tinsuir/index.html",
-    "main.60e090f9.css.map": "/tinsuir/static/css/main.60e090f9.css.map",
+    "main.d98c3083.css.map": "/tinsuir/static/css/main.d98c3083.css.map",
     "main.67db6bf0.js.map": "/tinsuir/static/js/main.67db6bf0.js.map"
   },
   "entrypoints": [
-    "static/css/main.60e090f9.css",
+    "static/css/main.d98c3083.css",
     "static/js/main.67db6bf0.js"
   ]
 }
