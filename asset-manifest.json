@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tinsuir/static/css/main.9e480eb7.css",
+    "main.js": "/tinsuir/static/js/main.4b339f87.js",
+    "index.html": "/tinsuir/index.html",
+    "main.9e480eb7.css.map": "/tinsuir/static/css/main.9e480eb7.css.map",
+    "main.4b339f87.js.map": "/tinsuir/static/js/main.4b339f87.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e480eb7.css",
+    "static/js/main.4b339f87.js"
+  ]
+}
