@@ -18,19 +18,33 @@ function App() {
         "lastName": "",
         "surName": "",
         "username": "",
-        "email": "",
-        "password": "",
+        "email": "l@L",
+        "password": "123",
         "profilePicture": "",
         "coverPicture": "",
         "events": [],
         "faculty": "",
         "course": "",
         "groupNum":"",
-        "isAdmin": "",
-        "_id": "",
+        "isAdmin": "true",
+        "_id": "132",
 
     });
-    let [events, setEvents] = useState([]);
+
+    let [events, setEvents] = useState([
+        {
+            "name": "FCADHACK",
+            "description":"FCADHACK – студенческий хакатон твоего университета! Это хороший шанс показать свои умения в программировании, дизайне и других IT-сферах. На нашем хакатоне",
+            "date_start": "05.04.24",
+            "date_end": "08.04.24",
+            "place": "place1",
+            "likes": 0,
+            "id": "1",
+            "owner": "ФКП",
+            "photo": "/images/Intersect.svg"
+        },
+
+    ]);
     let [usetEvents, setUsetEvents] = useState([]);
 
 

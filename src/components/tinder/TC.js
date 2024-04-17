@@ -30,11 +30,15 @@ let TC = (
             preventSwipe={["up", "down"]}
         >
             <div className="image">
-                <img src={data.url} alt=""/>
+                <img src={data.photo} alt=""/>
             </div>
+            <h1>{data.name}</h1>
             <div className="text">
-                <h3>{data.name}</h3>
-                {/*<h3>{data.description}</h3>*/}
+                <h5>Организатор: {data.owner}</h5>
+                <h5>Когда: {data.date_start} - {data.date_end}</h5>
+                <h5>Где: {data.place}</h5>
+                <h5>Описание:<br/><p>{data.description}</p></h5>
+
             </div>
         </TinderCard>
     )
