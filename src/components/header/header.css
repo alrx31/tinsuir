@@ -1,6 +1,6 @@
 header {
     width: 100%;
-
+    height: calc(var(--index) * 5);
     background-color: var(--black);
     display: flex;
     justify-content: space-between;
@@ -19,7 +19,6 @@ header {
     left: 0;
     top: 0;
     margin: 0;
-    padding: 0;
     padding: 16px;
 
 }

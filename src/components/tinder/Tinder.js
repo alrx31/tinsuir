@@ -3,7 +3,7 @@ import React from "react";
 import "./tinder.css";
 import TC from "./TC";
 export const Tinder = (
-    {addEvent,db}
+    {addEvent,db,isAdmin}
 ) => {
 
     return (
@@ -108,6 +108,7 @@ export const Tinder = (
                             addEvent={addEvent}
                             data={item}
                             key={item.id}
+                            isAdmin={isAdmin}
                         />
                     );
                 })}

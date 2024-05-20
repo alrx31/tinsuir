@@ -41,11 +41,21 @@ function App() {
             "likes": 0,
             "id": "1",
             "owner": "ФКП",
-            "photo": "/images/Intersect.svg"
+            "photo": "/images/FCADHACK.svg"
+        },
+        {
+            "name": "Ответы на вопросы",
+            "description":"FCADHACK – студенческий хакатон твоего университета! Это хороший шанс показать свои умения в программировании, дизайне и других IT-сферах. На нашем хакатоне",
+            "date_start": "05.04.24",
+            "date_end": "08.04.24",
+            "place": "place2",
+            "likes": 3,
+            "id": "2",
+            "owner": "ФКП",
+            "photo": "/images/AnswerQuestions.jpg"
         },
 
     ]);
-    let [usetEvents, setUsetEvents] = useState([]);
 
 
     let history = useNavigate();
@@ -63,12 +73,12 @@ function App() {
         if(userData.email === "" && userData.password === ""){
             history("/");
         }
-        if(userData.isAdmin == true){
+        if(userData.isAdmin){
             history("/adminP");
         }
 
 
-    }, [userData,token])
+    }, [token])
 
 
     let addEvent = (event) => {
@@ -84,7 +94,7 @@ function App() {
         setUserdata(temp);
     }
     let isAdmin = (user) => {
-        if(user.isAdmin === true){
+        if(user.isAdmin === 'true'){
             return true;
         }
         return false;
@@ -156,13 +166,13 @@ function App() {
 
         <div className="main">
       <Routes>
-            <Route path="/list" element={<List events={events} setEvents={setEvents} our={false} owner={userData} token={token} addEvent={addEvent}/>} />
+            <Route path="/list" element={<List events={events} setEvents={setEvents} our={false} owner={userData} token={token} addEvent={addEvent} isAdmin={isAdmin(userData)}/>} />
             <Route path="/my" element={<List events={events} our={true} owner={userData} addEvent={addEvent} token={token}/>} />
             <Route path="/profile" element={<Profile User={userData}/>} />
-            <Route path="/find" element={<Tinder db={events} addEvent={addEvent}/>} />
+            <Route path="/find" element={<Tinder db={events} addEvent={addEvent} isAdmin={isAdmin(userData)}/>} />
             <Route path="/login" element={<Login CallBack={CallSetuser}/>} />
             <Route path="/register" element={<Register />} />
-            <Route path={"/"} element={<Login CallBack={CallBackLogin}/>} />
+            <Route path="/" element={<Login CallBack={CallBackLogin}/>} />
             <Route path="*" element={<h1>Not Found</h1>} />
             <Route path="/adminP" element={<Admin />} />
             <Route path="/create" element={<Create CallAddEvent={CallAddEvent} events={events} token={token} user={userData} />}/>

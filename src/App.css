@@ -1,14 +1,15 @@
 .App {
   background-color: #181818;
   margin: 0;
-    padding: 0;
+  padding: 0;
 }
 
 .main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
   width: 100%;
-  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  overflow-y:auto;
+  overflow-x:hidden;
+  margin-top: calc(var(--index) * 5 + 8px);
 }

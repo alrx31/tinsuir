@@ -59,8 +59,13 @@ export const Create = (
                 <input type="text" id="eventName" placeholder="Event Name" onChange={handleChange} name="name"/>
 
                 <label htmlFor="eventDescription">Event Description</label>
-                <input type="text" id="eventDescription" placeholder="Event Description" onChange={handleChange} name="desc"/>
+                <textarea  id="eventDescription" placeholder="Event Description" onChange={handleChange} name="desc"/>
 
+                <label htmlFor="eventDate">Event Date</label>
+                <input type="date" id="eventDate" placeholder="Event Date" onChange={handleChange} name="name"/>
+
+                <input type="time"/>
+                
                 <label htmlFor="eventImage">Event Image</label>
                 <input type="file" id="eventImage" placeholder="Event Image" onChange={handleChange} name="img"/>
 

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import "./list.css";
 export const ListCard = (
-    {event,isBlock,addEvent,isAwardeed,onAwardeedChange}
+    {event,isBlock,addEvent,isAwardeed,onAwardeedChange,isAdmin}
     ) => {
 
 
@@ -9,22 +9,28 @@ export const ListCard = (
     let toggle = () => {
         setIsOpen(!isOpen)
     }
-    useEffect(() => {
-        // Вызываем функцию обратного вызова, когда isAwardeed изменяется
-        onAwardeedChange();
-    }, [isAwardeed]);
 
 
     return (
-        <div className={["listCard" , isBlock ? "block" : "",isAwardeed? "awarded" : "", isOpen ? "open" : ""].join(' ')} onClick={toggle}>
-            <div className="text">
+        <div className={["listCard" , isBlock ? "block" : "",isAwardeed? "awarded" : "", isOpen ? "open" : ""].join(' ')}>
+            <div className="text" >
                 <h2>{event.name}</h2>
                 <h2>{event.desc}</h2>
+                {!isBlock && !isOpen && <h4>{event.description}</h4>}
+                {isOpen && <h3>{event.description}</h3>}
+                {
+                    isOpen && !isAwardeed && !isAdmin &&
+                    <button onClick={()=>{
+                        addEvent(event)
+                        onAwardeedChange()
+                    }
 
-            {!isAwardeed ? <button className="towrite" onClick={()=>{addEvent(event);toggle(isOpen)}}>записаться</button> : null}
+                    } className={"towrite"}
+                    >Записаться</button>
+                }
             </div>
-            <div className="photo">
-                <img src={event.img} alt="random"/>
+            <div className="photo" onClick={toggle}>
+                <img src={event.photo} alt="random"/>
             </div>
 
         </div>

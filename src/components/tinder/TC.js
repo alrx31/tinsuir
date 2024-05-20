@@ -2,24 +2,18 @@ import React from "react";
 
 import "./tinder.css";
 import TinderCard from "react-tinder-card";
-
-
 let TC = (
     {
-        data,addEvent,key
+        data,addEvent,isAdmin
     }
 ) => {
 
     let onSwipe = (direction) => {
+        if(isAdmin) return
         if(direction === "right") {
-            /*
-            * subscrise to the event
-            *
-            * */
-            console.log("You liked this card");
+
             addEvent(data);
         }else{
-            console.log("You disliked this card");
 
         }
     }
@@ -30,7 +24,7 @@ let TC = (
             preventSwipe={["up", "down"]}
         >
             <div className="image">
-                <img src={data.photo} alt=""/>
+                <img src={data.photo} alt="photo"/>
             </div>
             <h1>{data.name}</h1>
             <div className="text">

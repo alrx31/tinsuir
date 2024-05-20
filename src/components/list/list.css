@@ -17,9 +17,7 @@
 .awarded{
     border:1px solid yellow;
 }
-.listCard:hover{
-    transform: scale(1.05);
-}
+
 .listCard img{
     margin-right: 16px;
     width: calc(var(--index) * 13);
@@ -35,10 +33,7 @@
     max-width:35%;
     height: 100%;
     word-wrap: break-word;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-flow: column nowrap;
+    text-align: center;
 }
 .listCard h2{
     font-size: calc(var(--index) * 1.5);
@@ -60,7 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow:column-reverse wrap;
+    flex-flow:column-reverse nowrap;
     position: relative;
     z-index: 1;
 }
@@ -112,8 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-
+    margin: 0px;
 }
 .Button{
     display: flex;
@@ -126,6 +120,7 @@
     margin: 0 var(--index);
     cursor: pointer;
     transition: .3s ease;
+    font-size: calc(var(--index) * 1.25);
 }
 .Button:hover{
     background-color: var(--gray);
@@ -136,6 +131,7 @@
     align-items: center;
     flex-flow: row wrap;
     margin-top: 32px;
+    left: 0;
     width: 100%;
     padding-bottom: calc(var(--index) * 20);
 }
@@ -151,11 +147,11 @@
     flex-flow: column-reverse;
     position: fixed;
 
-    top: calc(var(--index) * 8);
-    z-index: 3;
+    top: calc(var(--index) * 4);
+    left: 50%;
+    z-index: 5;
     margin: 0 auto;
     transform: translateX(-50%);
-
 }
 
 
@@ -180,13 +176,31 @@
     align-items: center;
     flex-flow: column nowrap;
     transition: .3s ease;
-    overflow-y:scroll;
+    overflow-y:auto;
 }
 .open .text p{
     display: block;
 }
 
 
+
+h4{
+    text-align: justify;
+    font-family: roboto;
+    font-weight: 400;
+    font-size: calc(var(--index) * .8);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+    margin: 16px auto;
+}
+
+h3{
+    text-align: justify;
+    font-weight: 100;
+    margin-top: 16px;
+    padding: 0 8px;
+}
 
 @media (min-width: 1000px){
 
@@ -197,18 +211,23 @@
 }
 
 .towrite {
-    padding: 5px;
-    background-color:var(--blue);
+    margin: 16px auto;
+    padding: 8px 16px;
+    background-color:transparent;
+    border:2px solid var(--blue);
     border-radius: calc(var(--index) * 3);
     text-align: center;
-    margin: 0 auto;
     color:white;
     cursor: pointer;
     transition: .3s ease;
-    border: none;
+    position: relative;
+    z-index: 9;
 }
 
 .towrite:hover{
     background-color: var(--gray);
+}
+.towrite:active{
+    background-color: var(--blue);
 }
 

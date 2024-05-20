@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ListCard } from "./ListCard";
 import "./list.css";
 
-export const List = ({ events = [], our, owner, addEvent ,setEvents,token}) => {
+export const List = ({ events = [], our, owner, addEvent ,setEvents,token,isAdmin}) => {
     let [key, setKey] = useState(0);
     let eves = [];
     if (our) {
@@ -51,7 +51,8 @@ export const List = ({ events = [], our, owner, addEvent ,setEvents,token}) => {
                             isBlock={isBlock}
                             addEvent={addEvent}
                             isAwardeed={CheckAward(event)}
-                            onAwardeedChange={handleAwardeedChange} // Передаем функцию обратного вызова
+                            onAwardeedChange={handleAwardeedChange}
+                            isAdmin={isAdmin}
                         />
                     );
                 })}

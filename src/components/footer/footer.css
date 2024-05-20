@@ -4,7 +4,7 @@ footer{
     width: 100%;
     height: 50px;
     padding-bottom: calc(var(--index) * 2);
-    z-index: 1;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
